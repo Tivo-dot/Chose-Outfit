@@ -1,60 +1,70 @@
 css
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', sans-serif;
+  background-color: #f2f2f2;
+  color: #111;
+}
+
 header {
-  background: #202020;
-  padding: 20px;
   text-align: center;
-  font-weight: bold;
-  font-size: 1.5rem;
-  border-bottom: 1px solid #ccc;
+  padding: 20px 10px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin: 0;
 }
 
 main {
+  background-color: #ffffff;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
+  gap: 30px;
 }
 
 #manichino-area img {
-  width: 100px;
+  width: 180px;
   max-width: 100%;
+  height: auto;
 }
 
-input[type="file"] {
-  display: none;
+#vestiti-area {
+  text-align: center;
 }
 
-label[for="upload"] {
+#vestiti-area h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.custom-button {
   background-color: #00aaff;
   color: white;
   padding: 10px 20px;
-border-radius: 10px;
-  cursor: pointer;
+  border: none;
+  border-radius: 8px;
   font-size: 1rem;
-  margin-top: 10px;
+  cursor: pointer;
 }
 
 #galleria-vestiti {
+  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
-  margin-top: 20px;
+  justify-content: center;
 }
 
 #galleria-vestiti img {
   width: 80px;
   height: auto;
-  border: 2px solid #00aaff;
   border-radius: 5px;
-}
-
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: #00aaff;
-  color: white;
-  font-size: 1rem;
+  border: 2px solid #00aaff;
 }
