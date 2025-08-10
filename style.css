@@ -3,81 +3,124 @@ css
 body {
   margin: 0;
   padding: 0;
-font-family: Arial, sans-serif;
-  background-color: #0a0f2c; /* blu notte */
+  font-family: Arial, sans-serif;
+  background-color: #0a0f2c; /* Blu notte */
   color: #ffffff;
+}
+
+/* Header e titolo */
+header {
+  padding: 20px 0;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+/* Pulsante armadio */
+nav .btn {
+  display: inline-block;
+  background-color: #3399ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+nav .btn:hover {
+  background-color: #1a73e8;
+}
+
+/* Main layout flex */
+main {
   display: flex;
   justify-content: center;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 10px 20px 40px;
 }
 
-/* Contenitore principale */
-main {
-  width: 100%;
-  max-width: 420px;
-  padding: 20px;
-}
-
-/* Area manichino */
+/* Manichino */
 #manichino-area {
-  background-color: #1e1e2f; /* carta scura */
+  background-color: #1e1e2f; /* Carta scura */
   border-radius: 15px;
   padding: 20px;
-  margin: 20px auto;
+  width: 320px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
   text-align: center;
 }
 
-/* Immagine manichino */
 #manichino {
-  width: 100%;
   max-width: 250px;
-  border-radius: 15px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(51, 153, 255, 0.6);
 }
 
-/* Area vestiti */
-#vestiti-area {
+/* Slider area (contenitore verticale) */
+#slider-area {
+display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 340px;
+}
+
+/* Ogni box slider */
+.slider-box {
   background-color: #1e1e2f;
   border-radius: 15px;
-  padding: 20px;
-  margin: 20px auto;
+  padding: 15px 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Titolo sezione */
-#vestiti-area h2 {
+.slider-box h3 {
+  margin: 0 0 10px;
+  font-weight: 600;
+  color: #66b0ff;
   text-align: center;
-  margin-bottom: 10px;
 }
 
-/* Bottone personalizzato */
-.custom-button {
-  display: inline-block;
-  background-color: #2979ff;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  text-align: center;
-  user-select: none;
-  margin: 10px auto;
-  display: block;
-  max-width: 150px;
-}
-
-/* Galleria immagini */
-#galleria-vestiti {
+/* Contenitore immagini slider - orizzontale scroll */
+.slider-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  overflow-x: auto;
   gap: 10px;
-  margin-top: 15px;
+  padding-bottom: 5px;
+  scroll-behavior: smooth;
 }
 
-#galleria-vestiti img {
-  width: 60px;
-  height: 60px;
-object-fit: cover;
-  border-radius: 8px;
-  background-color: white;
-  padding: 5px;
+/* Immagini vestiti slider */
+.slider-container img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.slider-container img:hover {
+  border-color: #3399ff;
+}
+
+/* Nascondi scrollbar su Webkit */
+.slider-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.slider-container::-webkit-scrollbar-thumb {
+  background-color: #3399ff;
+  border-radius: 3px;
+}
+
+/* Nascondi scrollbar su Firefox */
+.slider-container {
+  scrollbar-width: thin;
+  scrollbar-color: #3399ff transparent;
 }
