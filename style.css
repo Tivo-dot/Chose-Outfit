@@ -1,70 +1,57 @@
 css
 body {
   margin: 0;
-  padding: 0;
-  font-family: 'Helvetica Neue', sans-serif;
-  background-color: #f2f2f2;
-  color: #111;
-}
-
-header {
+  font-family: 'Arial', sans-serif;
+  background-color: #0a0f2c; /* blu notte */
+  color: #ffffff;
   text-align: center;
-  padding: 20px 10px;
 }
 
-h1 {
-  font-size: 2.2rem;
-  margin: 0;
+header h1 {
+  font-size: 2.5rem;
+  margin: 20px 0;
 }
 
-main {
-  background-color: #ffffff;
-  margin: 20px;
-  padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
+#manichino-area {
+  margin: 20px auto;
 }
 
-#manichino-area img {
-  width: 180px;
-  max-width: 100%;
+#manichino {
+  width: 50%;
+  max-width: 300px;
   height: auto;
 }
 
 #vestiti-area {
-  text-align: center;
+  margin-top: 40px;
 }
 
 #vestiti-area h2 {
+  font-size: 1.8rem;
   margin-bottom: 10px;
-  font-size: 1.5rem;
 }
 
 .custom-button {
-  background-color: #00aaff;
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  background-color: #1e90ff;
   color: white;
-  padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  font-size: 1rem;
   cursor: pointer;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #1c7ed6;
 }
 
 #galleria-vestiti {
-  margin-top: 15px;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
   justify-content: center;
-}
-
-#galleria-vestiti img {
-  width: 80px;
-  height: auto;
-  border-radius: 5px;
-  border: 2px solid #00aaff;
+  gap: 10px;
+  margin-top: 20px;
 }
