@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Armadio Digitale</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background-color: #0a0f2c;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .gruppo {
+      background-color: #1e1e2f;
+      border-radius: 15px;
+      padding: 15px;
+      margin: 20px auto;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+    .gruppo h2 {
+      margin-top: 0;
+    }
+    .vestiti-lista {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .vestiti-lista img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #3498db;
+    }
+    button {
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 8px;
+padding: 10px 15px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #5dade2;
+    }
+    input[type="file"] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Il mio Armadio Digitale</h1>
+
+  <div class="gruppo" id="superiore">
+    <h2>Parte Superiore</h2>
+    <label for="upload-superiore">
+      <button>Aggiungi capo</button>
+    </label>
+    <input type="file" id="upload-superiore" accept="image/*" multiple />
+    <div class="vestiti-lista" id="lista-superiore"></div>
+  </div>
+
+  <div class="gruppo" id="inferiore">
+    <h2>Parte Inferiore</h2>
+    <label for="upload-inferiore">
+      <button>Aggiungi capo</button>
+    </label>
+    <input type="file" id="upload-inferiore" accept="image/*" multiple />
+    <div class="vestiti-lista" id="lista-inferiore"></div>
+  </div>
+
+  <div class="gruppo" id="scarpe">
+    <h2>Scarpe</h2>
+    <label for="upload-scarpe">
+      <button>Aggiungi capo</button>
+    </label>
+    <input type="file" id="upload-scarpe" accept="image/*" multiple />
+    <div class="vestiti-lista" id="lista-scarpe"></div>
+  </div>
+
+  <script>
+    // Funzione per caricare e mostrare immagini nel gruppo specificato
+    function handleUpload(event, gruppo) {
+      const files = event.target.files;
+if (!files.length) return;
+
+      // Recupera array di immagini salvate da sessionStorage o crea nuovo
+      let saved = JSON.parse(sessionStorage.getItem(gruppo)) || [];
+
+      for (const file of files) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          saved.push(e.target.result);
+          sessionStorage.setItem(gruppo, JSON.stringify(saved));
+          mostraVestiti(gruppo);
+        };
+        reader.readAsDataURL(file);
+      }
+      // Svuota l’input per poter ricaricare stessi file se necessario
+      event.target.value = "";
+    }
+
+    // Funzione per mostrare immagini dal gruppo
+    function mostraVestiti(gruppo) {
+      const container = document.getElementById("lista-" + gruppo);
+      container.innerHTML = "";
+      let saved = JSON.parse(sessionStorage.getItem(gruppo)) || [];
+      for (const src of saved) {
+        const img = document.createElement("img");
+        img.src = src;
+        container.appendChild(img);
+      }
+    }
+
+    // Setup listener input file
+    document.getElementById("upload-superiore").addEventListener("change", (e) => handleUpload(e, "superiore"));
+    document.getElementById("upload-inferiore").addEventListener("change", (e) => handleUpload(e, "inferiore"));
+document.getElementById("upload-scarpe").addEventListener("change", (e) => handleUpload(e, "scarpe"));
+
+    // All’apertura mostra immagini salvate
+    mostraVestiti("superiore");
+    mostraVestiti("inferiore");
+    mostraVestiti("scarpe");
+  </script>
+</body>
+</html>
