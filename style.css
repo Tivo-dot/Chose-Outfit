@@ -1,57 +1,66 @@
 css
-body {
+/* Sfondo generale */
+html, body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #0a0f2c; /* blu notte */
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0a0f2c; /* Blu notte */
   color: #ffffff;
-  text-align: center;
 }
 
-header h1 {
-  font-size: 2.5rem;
-  margin: 20px 0;
-}
-
-#manichino-area {
+/* Contenitore tipo "carta" */
+main {
+  max-width: 500px;
   margin: 20px auto;
+  background-color: #0a0f2c; /* Colore carta */
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
 }
 
+/* Titoli */
+h1, h2 {
+  text-align: center;
+  color: #ffffff;
+}
+
+/* Immagine manichino */
 #manichino {
-  width: 50%;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
   max-width: 300px;
-  height: auto;
 }
 
-#vestiti-area {
-  margin-top: 40px;
-}
-
-#vestiti-area h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
-
-.custom-button {
-  display: inline-block;
-  padding: 12px 24px;
-  font-size: 1rem;
-  background-color: #1e90ff;
+/* Bottone "Aggiungi capo" */
+label[for="upload"] {
+  display: block;
+  background-color: #007bff;
   color: white;
-  border: none;
-  border-radius: 8px;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 15px auto;
+  max-width: 200px;
+  font-weight: bold;
   cursor: pointer;
-  margin-bottom: 10px;
-  transition: background-color 0.3s ease;
 }
 
-.custom-button:hover {
-  background-color: #1c7ed6;
-}
-
+/* Galleria vestiti */
 #galleria-vestiti {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+/* Ogni immagine di vestito */
+#galleria-vestiti img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: white;
 }
