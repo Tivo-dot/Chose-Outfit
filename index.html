@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Outfit App</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icon-192.png">
-  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon-192.png" />
+  <meta name="theme-color" content="#ffffff" />
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -20,13 +20,13 @@
 
   <main>
     <section id="manichino-area">
-      <img src="manichino.png" alt="Manichino" id="manichino">
+      <img src="manichino.png" alt="Manichino" id="manichino" />
     </section>
 
     <section id="vestiti-area">
       <h2>Vestiti disponibili</h2>
-<label for="upload" class="custom-button">Aggiungi capo</label>
-<input type="file" accept="image/*" id="upload" multiple style="display: none;">
+      <label for="upload" class="custom-button">Aggiungi capo</label>
+      <input type="file" accept="image/*" id="upload" multiple style="display: none;" />
       <div id="galleria-vestiti"></div>
     </section>
   </main>
