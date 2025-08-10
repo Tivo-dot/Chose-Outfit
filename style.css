@@ -1,57 +1,72 @@
 css
+/* Sfondo generale */
 body {
   margin: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #0a0f2c; /* blu notte */
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0a0f2c; /* Blu notte */
   color: #ffffff;
-  text-align: center;
 }
 
+/* Titolo */
 header h1 {
-  font-size: 2.5rem;
+  text-align: center;
   margin: 20px 0;
 }
 
+/* Area manichino */
 #manichino-area {
+  background-color: #1e1e2f; /* Carta scura */
+  border-radius: 15px;
+  padding: 20px;
   margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  text-align: center;
 }
 
+/* Immagine manichino */
 #manichino {
-  width: 50%;
-  max-width: 300px;
-  height: auto;
+  width: 100%;
+  max-width: 250px;
 }
 
+/* Area vestiti */
 #vestiti-area {
-  margin-top: 40px;
+  background-color: #1e1e2f;
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
+/* Titolo sezione */
 #vestiti-area h2 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
+  text-align: center;
 }
 
-.custom-button {
-  display: inline-block;
-  padding: 12px 24px;
-  font-size: 1rem;
-  background-color: #1e90ff;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 10px;
-  transition: background-color 0.3s ease;
+/* Input upload */
+#upload {
+  display: block;
+  margin: 10px auto;
 }
 
-.custom-button:hover {
-  background-color: #1c7ed6;
-}
-
+/* Galleria immagini */
 #galleria-vestiti {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 15px;
+}
+#galleria-vestiti img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: white;
+  padding: 5px;
 }
