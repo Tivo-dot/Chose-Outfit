@@ -2,35 +2,132 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Outfit App</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="icon-192.png" />
-  <meta name="theme-color" content="#ffffff" />
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
-      });
-    }
-  </script>
 </head>
 <body>
+  <header>
+    <h1>Il mio armadio</h1>
+    <nav style="text-align:center; margin-bottom: 20px;">
+      <a href="armadio.html" class="btn">Armadio</a>
+    </nav>
+  </header>
 
-  <main>
+  <main style="display: flex; justify-content: center; gap: 20px; align-items: flex-start;">
+    <!-- Manichino -->
     <section id="manichino-area">
       <img src="manichino.png" alt="Manichino" id="manichino" />
     </section>
 
-    <section id="vestiti-area">
-      <h2>Vestiti disponibili</h2>
-      <label for="upload" class="custom-button">Aggiungi capo</label>
-      <input type="file" accept="image/*" id="upload" multiple style="display: none;" />
-      <div id="galleria-vestiti"></div>
+    <!-- Slider verticali con 3 gruppi -->
+    <section id="slider-area" style="display: flex; flex-direction: column; gap: 15px;">
+      <div class="slider-box" id="slider-superiore">
+        <h3>Parte superiore</h3>
+        <div class="slider-container">
+          <!-- Immagini scorrevoli inserite dinamicamente -->
+        </div>
+      </div>
+
+      <div class="slider-box" id="slider-inferiore">
+        <h3>Parte inferiore</h3>
+        <div class="slider-container"></div>
+</div>
+
+      <div class="slider-box" id="slider-scarpe">
+        <h3>Scarpe</h3>
+        <div class="slider-container"></div>
+      </div>
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script>
+    // Funzione per caricare vestiti dai gruppi da sessionStorage e mostrarli negli slider
+    function mostraSlider(gruppo) {
+      const container = document.querySelector(`#slider-${gruppo} .slider-container`);
+      container.innerHTML = "";
+      const saved = JSON.parse(sessionStorage.getItem(gruppo)) || [];
+      saved.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.style.width = "80px";
+        img.style.height = "80px";
+        img.style.objectFit = "cover";
+        img.style.borderRadius = "8px";
+        img.style.marginRight = "8px";
+        container.appendChild(img);
+      });
+    }
+
+    mostraSlider("superiore");
+    mostraSlider("inferiore");
+    mostraSlider("scarpe");
+  </script>
+</body>
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Outfit App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Il mio armadio</h1>
+    <nav style="text-align:center; margin-bottom: 20px;">
+      <a href="armadio.html" class="btn">Armadio</a>
+    </nav>
+  </header>
+
+  <main style="display: flex; justify-content: center; gap: 20px; align-items: flex-start;">
+    <!-- Manichino -->
+    <section id="manichino-area">
+      <img src="manichino.png" alt="Manichino" id="manichino" />
+    </section>
+
+    <!-- Slider verticali con 3 gruppi -->
+    <section id="slider-area" style="display: flex; flex-direction: column; gap: 15px;">
+      <div class="slider-box" id="slider-superiore">
+        <h3>Parte superiore</h3>
+        <div class="slider-container">
+          <!-- Immagini scorrevoli inserite dinamicamente -->
+        </div>
+      </div>
+
+      <div class="slider-box" id="slider-inferiore">
+        <h3>Parte inferiore</h3>
+        <div class="slider-container"></div>
+</div>
+
+      <div class="slider-box" id="slider-scarpe">
+        <h3>Scarpe</h3>
+        <div class="slider-container"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Funzione per caricare vestiti dai gruppi da sessionStorage e mostrarli negli slider
+    function mostraSlider(gruppo) {
+      const container = document.querySelector(`#slider-${gruppo} .slider-container`);
+      container.innerHTML = "";
+      const saved = JSON.parse(sessionStorage.getItem(gruppo)) || [];
+      saved.forEach(src => {
+        const img = document.createElement("img");
+        img.src = src;
+        img.style.width = "80px";
+        img.style.height = "80px";
+        img.style.objectFit = "cover";
+        img.style.borderRadius = "8px";
+        img.style.marginRight = "8px";
+        container.appendChild(img);
+      });
+    }
+
+    mostraSlider("superiore");
+    mostraSlider("inferiore");
+    mostraSlider("scarpe");
+  </script>
 </body>
 </html>
