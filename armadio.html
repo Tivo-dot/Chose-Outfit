@@ -4,32 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Armadio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div id="armadio-header">
-    <button onclick="window.location.href='index.html'">← Indietro</button>
+    <button id="btn-indietro" onclick="window.location.href='index.html'">⟵ Indietro</button>
     <h1>Armadio</h1>
   </div>
 
-  <div class="categoria" id="superiore">
-    <h3>Parte superiore</h3>
-    <button onclick="document.getElementById('upload-superiore').click()">Aggiungi capo</button>
-    <input type="file" id="upload-superiore" accept="image/*" multiple onchange="caricaImmagini(event, 'superiore')" style="display:none">
-    <div class="vestiti-lista" id="lista-superiore"></div>
-  </div>
+  <div id="armadio">
+    <div class="categoria">
+      <h3>Parte superiore</h3>
+      <input type="file" accept="image/*" multiple onchange="caricaImmagini(event, 'superiore')">
+      <div class="vestiti-lista" id="lista-superiore"></div>
+    </div>
 
-  <div class="categoria" id="inferiore">
-    <h3>Parte inferiore</h3>
-    <button onclick="document.getElementById('upload-inferiore').click()">Aggiungi capo</button>
-    <input type="file" id="upload-inferiore" accept="image/*" multiple onchange="caricaImmagini(event, 'inferiore')" style="display:none">
-<div class="vestiti-lista" id="lista-inferiore"></div>
-  </div>
+    <div class="categoria">
+      <h3>Parte inferiore</h3>
+      <input type="file" accept="image/*" multiple onchange="caricaImmagini(event, 'inferiore')">
+      <div class="vestiti-lista" id="lista-inferiore"></div>
+    </div>
 
-  <div class="categoria" id="scarpe">
-    <h3>Scarpe</h3>
-    <button onclick="document.getElementById('upload-scarpe').click()">Aggiungi capo</button>
-    <input type="file" id="upload-scarpe" accept="image/*" multiple onchange="caricaImmagini(event, 'scarpe')" style="display:none">
-    <div class="vestiti-lista" id="lista-scarpe"></div>
+    <div class="categoria">
+      <h3>Scarpe</h3>
+      <input type="file" accept="image/*" multiple onchange="caricaImmagini(event, 'scarpe')">
+      <div class="vestiti-lista" id="lista-scarpe"></div>
+    </div>
   </div>
 
   <script src="armadio.js"></script>
