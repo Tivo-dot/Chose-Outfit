@@ -1,78 +1,36 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Armadio Digitale</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armadio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Il mio Armadio Digitale</h1>
-
-  <div class="gruppo" id="superiore">
-    <h2>Parte Superiore</h2>
-       <button onclick="document.getElementById('upload-superiore').click()">Aggiungi capi</button>
-    <input type="file" id="upload-superiore" accept="image/*" multiple />
-    <div class="vestiti-lista" id="lista-superiore"></div>
+  <div id="armadio-header">
+    <button id="btn-indietro" onclick="window.location.href='index.html'">← Indietro</button>
+    <h1>Armadio</h1>
   </div>
 
-  <div class="gruppo" id="inferiore">
-    <h2>Parte Inferiore</h2>
-       <button onclick="document.getElementById('upload-inferiore').click()">Aggiungi capi</button>
-    <input type="file" id="upload-inferiore" accept="image/*" multiple />
-    <div class="vestiti-lista" id="lista-inferiore"></div>
+  <div id="armadio">
+    <button id="aggiungi-capo">Aggiungi capo</button>
+    
+    <div class="categoria">
+      <h3>Parte superiore</h3>
+      <div class="vestiti-lista" id="lista-superiore"></div>
+    </div>
+
+    <div class="categoria">
+      <h3>Parte inferiore</h3>
+      <div class="vestiti-lista" id="lista-inferiore"></div>
+    </div>
+
+    <div class="categoria">
+      <h3>Scarpe</h3>
+      <div class="vestiti-lista" id="lista-scarpe"></div>
+    </div>
   </div>
 
-  <div class="gruppo" id="scarpe">
-    <h2>Scarpe</h2>
-       <button onclick="document.getElementById('upload-scarpe').click()">Aggiungi capi</button>
-    <input type="file" id="upload-scarpe" accept="image/*" multiple />
-    <div class="vestiti-lista" id="lista-scarpe"></div>
-  </div>
-
-  <script>
-    // Funzione per caricare e mostrare immagini nel gruppo specificato
-    function handleUpload(event, gruppo) {
-      const files = event.target.files;
-if (!files.length) return;
-
-      // Recupera array di immagini salvate da sessionStorage o crea nuovo
-      let saved = JSON.parse(localStorage.getItem(gruppo)) || [];
-
-      for (const file of files) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          saved.push(e.target.result);
-          localStorage.setItem(gruppo, JSON.stringify(saved));
-          mostraVestiti(gruppo);
-        };
-        reader.readAsDataURL(file);
-      }
-      // Svuota l’input per poter ricaricare stessi file se necessario
-      event.target.value = "";
-    }
-
-    // Funzione per mostrare immagini dal gruppo
-    function mostraVestiti(gruppo) {
-      const container = document.getElementById("lista-" + gruppo);
-      container.innerHTML = "";
-      let saved = JSON.parse(localStorage.getItem(gruppo)) || [];
-      for (const src of saved) {
-        const img = document.createElement("img");
-        img.src = src;
-        container.appendChild(img);
-      }
-    }
-
-    // Setup listener input file
-    document.getElementById("upload-superiore").addEventListener("change", (e) => handleUpload(e, "superiore"));
-    document.getElementById("upload-inferiore").addEventListener("change", (e) => handleUpload(e, "inferiore"));
-document.getElementById("upload-scarpe").addEventListener("change", (e) => handleUpload(e, "scarpe"));
-
-    // All’apertura mostra immagini salvate
-    mostraVestiti("superiore");
-    mostraVestiti("inferiore");
-    mostraVestiti("scarpe");
-  </script>
+  <script src="armadio.js"></script>
 </body>
 </html>
