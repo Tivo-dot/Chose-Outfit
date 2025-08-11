@@ -93,13 +93,13 @@ padding: 10px 15px;
 if (!files.length) return;
 
       // Recupera array di immagini salvate da sessionStorage o crea nuovo
-      let saved = JSON.parse(sessionStorage.getItem(gruppo)) || [];
+      let saved = JSON.parse(localStorage.getItem(gruppo)) || [];
 
       for (const file of files) {
         const reader = new FileReader();
         reader.onload = (e) => {
           saved.push(e.target.result);
-          sessionStorage.setItem(gruppo, JSON.stringify(saved));
+          localStorage.setItem(gruppo, JSON.stringify(saved));
           mostraVestiti(gruppo);
         };
         reader.readAsDataURL(file);
@@ -112,7 +112,7 @@ if (!files.length) return;
     function mostraVestiti(gruppo) {
       const container = document.getElementById("lista-" + gruppo);
       container.innerHTML = "";
-      let saved = JSON.parse(sessionStorage.getItem(gruppo)) || [];
+      let saved = JSON.parse(localStorage.getItem(gruppo)) || [];
       for (const src of saved) {
         const img = document.createElement("img");
         img.src = src;
