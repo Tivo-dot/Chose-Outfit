@@ -35,7 +35,9 @@ nav .btn {
 nav .btn:hover {
   background-color: #1a73e8;
 }
-
+input[type="file"] {
+  display: none;
+}
 /* Main layout flex */
 main {
   display: flex;
