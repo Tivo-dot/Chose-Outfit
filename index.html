@@ -46,7 +46,7 @@
     function mostraSlider(gruppo) {
       const container = document.querySelector(`#slider-${gruppo} .slider-container`);
       container.innerHTML = "";
-      const saved = JSON.parse(sessionStorage.getItem(gruppo)) || [];
+      const saved = JSON.parse(localStorage.getItem(gruppo)) || [];
       saved.forEach(src => {
         const img = document.createElement("img");
         img.src = src;
