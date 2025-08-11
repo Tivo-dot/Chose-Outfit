@@ -126,3 +126,20 @@ display: flex;
   scrollbar-width: thin;
   scrollbar-color: #3399ff transparent;
 }
+
+.btn-indietro {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: #3399ff;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.btn-indietro:hover {
+  background-color: #1a73e8;
+}
