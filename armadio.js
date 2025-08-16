@@ -1,4 +1,3 @@
-javascript
 function caricaImmagini(event, categoria) {
   const files = event.target.files;
   const lista = document.getElementById('lista-' + categoria);
